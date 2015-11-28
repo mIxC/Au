@@ -1,19 +1,23 @@
 Rails.application.routes.draw do
 
-  root 'rooms#index'
+
+  root 'welcome#index'
+
   get 'rooms' => 'rooms#index'
-  ##get 'albums/new' => 'albums#new'
+
   get 'rooms/:id' => 'rooms#show', as: :room
   post 'rooms' => 'rooms#create'
   resource :rooms
 
   get 'signup' => 'users#new'
+  get 'profile' => 'users#show'
   resources :users
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   resources :sessions
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
