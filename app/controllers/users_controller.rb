@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :current_user, only: [:new, :create]
+
   def new
     @user = User.new
   end
@@ -8,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to '/profile'
+      redirect_to '/profile'   ### не переходит чего-то... отправляет на главную!
     else
       redirect_to '/signup'
     end

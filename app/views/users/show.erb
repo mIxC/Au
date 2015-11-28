@@ -1,14 +1,16 @@
 
 
 
-<h1>Здравствуйте, <%= current_user.user_name %> </h1><br>
+<h1>Hello,  <%= current_user.user_name %> </h1><br>
 
- It's you'r personal area.
-  this you can see you informations.
-
-
+ It's you'r personal area <br>
+   You can see info about you
 
 
+
+<br>
+<br>
+<br>
 
 
 <p>
@@ -24,18 +26,24 @@
 
 <p>
   <strong>Wins : </strong>
-  <%= current_user.id %>
+  <%= current_user.wins %>
 </p>
 
 <p>
-  <strong>Loos : </strong>
-  <%= current_user.id %>
+  <strong>Loss : </strong>
+  <%= current_user.loss %>
 </p>
 
 <p>
   <strong>MMR : </strong>
-  <%= current_user.id %>
+  <%= current_user.mmr %>
+
+
+
 </p>
+
+
+
 
 
 

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'rooms' => 'rooms#index'
 
-  get 'rooms/:id' => 'rooms#show', as: :room
+  get 'rooms/:id' => 'rooms#show'
   post 'rooms' => 'rooms#create'
   resource :rooms
 
