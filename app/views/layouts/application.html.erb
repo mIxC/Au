@@ -23,7 +23,7 @@
     <div class="nav pull-right">
       <% if current_user %>
           <ul>
-            <!--<li><%= link_to current_user.user_name, profile_path(@params)   %></li> -->
+
             <li><%= link_to current_user.user_name, profile_path(@params)   %></li>
             <li><%= link_to "Log out", logout_path, method: "delete" %></li>
           </ul>
