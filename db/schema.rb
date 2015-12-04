@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20151128110102) do
   create_table "users", force: :cascade do |t|
     t.string   "user_name"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "wins"
-    t.integer  "loss"
-    t.integer  "draw"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "wins",            default: 0
+    t.integer  "loss",            default: 0
+    t.integer  "draw",            default: 0
   end
 
 end
