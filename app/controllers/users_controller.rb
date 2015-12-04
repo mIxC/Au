@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :current_user, only: [:new, :create]
+  ###before_action :current_user, only: [:new, :create]
 
   def new
     @user = User.new
