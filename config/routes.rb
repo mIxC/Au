@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'rooms' => 'rooms#index'
-
-  get 'rooms/:id' => 'rooms#show'
   post 'rooms' => 'rooms#create'
+  get 'game' => 'rooms#show'
   resource :rooms
 
   get 'signup' => 'users#new'

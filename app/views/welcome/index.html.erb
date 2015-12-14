@@ -1,6 +1,47 @@
 <h1>Welcome/index</h1>
 
-
-
 <h2>Welcome to tic-tac-toe Super Game!!!</h2>
-<h3>Login and Wins!</h3>
+
+<br>
+<br>
+
+<% if current_user  %>
+
+
+    <!-- кнопки для присоединения к уже созданным играм (пока тоже создают игру)-->
+    <ul class="rooms">
+      <% @rooms.each do |room| %>
+
+
+          <li>
+
+
+            <%=  room.first_user %>
+
+
+            <%= form_for(:room, url: rooms_path(current_user)) do |f| %>
+                <%= f.submit "Accept", class: "btn-submit" %>
+
+            <%end%>
+
+          </li>
+          <%end%>
+
+    </ul>
+
+
+
+    <center>
+      <%= form_for(:room, url: rooms_path(current_user.user_name)) do |f| %>
+          <%= f.submit "Create Game", class: "btn-submit" %>
+      <% end %>
+    </center>
+<% end %>
+
+<!-- общая кнопка, создает комнату  ( откправляет на room/create-->
+
+
+
+
+
+

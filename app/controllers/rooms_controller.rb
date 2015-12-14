@@ -1,16 +1,33 @@
 class RoomsController < ApplicationController
 
-  before_action :require_user, only: [:show, :index]  ## вообще не пойму как это тут работает...
-  # но пока она просто не пускает неавторизованных пользователей на методы комнаты...
+  def new
+    @room = Room.new
 
+  end
 
+  def create
+    @room = Room.new(:first_user => current_user.user_name)
 
-  def index
-    #@room = Room.all
+      @room.save
+    redirect_to '/game'
+  end
+
+  ### что-то типа удаление,  ( прсото флажек законченности игры)
+  def destroy
+    @room.ending = TRUE
   end
 
   def show
-    #@room = Room.find(params[:id])
-    #@photos = @room.photos
+    @room = Room.find_by_first_user(current_user.user_name)  ### создает и перенаправляет в конату для игры блеать!
   end
+
+####  надо проверить,  написал наугад,  коннект второго пользователя
+  ########## к игре где есть первый пользователь  ( в качестве параметра передается имя первого пользователя)
+  def connect
+    @room = Room.find_by_first_user(params)
+    @room.second_user = current_user.user_name
+    redirect_to '/game'
+  end
+
+
 end
