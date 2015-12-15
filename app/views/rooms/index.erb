@@ -4,3 +4,25 @@
 
 
 
+
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+     <!--<h2>Create game</h2> -->
+
+
+
+      <%= form_for(:room, url: rooms_path) do |f| %>
+
+
+
+          <%= f.submit "Start game", class: "btn-submit" %>
+
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+

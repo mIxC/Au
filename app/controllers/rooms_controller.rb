@@ -1,33 +1,42 @@
 class RoomsController < ApplicationController
+  include UsersHelper
 
   def new
     @room = Room.new
-
   end
 
   def create
-    @room = Room.new(:first_user => current_user.user_name)
+    @room = Room.new(params[:room])
+    ###@room = Room.new(room_params)
+    @room.first_user = current_user.user_name
 
-      @room.save
-    redirect_to '/game'
+    if @room.save
+      redirect_to '/game'
+    end
   end
 
-  ### что-то типа удаление,  ( прсото флажек законченности игры)
-  def destroy
-    @room.ending = TRUE
-  end
+
+
 
   def show
-    @room = Room.find_by_first_user(current_user.user_name)  ### создает и перенаправляет в конату для игры блеать!
-  end
-
-####  надо проверить,  написал наугад,  коннект второго пользователя
-  ########## к игре где есть первый пользователь  ( в качестве параметра передается имя первого пользователя)
-  def connect
-    @room = Room.find_by_first_user(params)
-    @room.second_user = current_user.user_name
-    redirect_to '/game'
+    @room = Room.find_by_first_user(params[:id])
   end
 
 
+
+
+  def room_params
+    params.require(@room).permit(:id)
+
+  end
 end
+
+
+##----------------------------------------------------------------------------------##
+
+##def show
+ ## @user  = User.find(params[:id])
+ ## @games = Game.find(:all, :conditions => ['user1_id = ? or user2_id = ?', @user.id, @user.id])
+
+##end
+

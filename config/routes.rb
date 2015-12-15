@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'rooms' => 'rooms#index'
-  post 'rooms' => 'rooms#create'
   get 'game' => 'rooms#show'
   resource :rooms
 
