@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
 
 
   def show
-    @room = Room.find_by_first_user(params[:id])
+    
   end
 
 
