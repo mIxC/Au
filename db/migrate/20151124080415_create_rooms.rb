@@ -5,6 +5,7 @@ class CreateRooms < ActiveRecord::Migration
       t.belongs_to :second_user
       t.boolean :ending, default: false
 
+
       t.timestamps null: false
     end
   end

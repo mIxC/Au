@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20151216050340) do
   create_table "steps", force: :cascade do |t|
     t.integer  "room_id"
     t.boolean  "is_cross"
+    t.integer  "user_id"
+    t.integer  "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

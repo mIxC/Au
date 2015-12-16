@@ -69,14 +69,19 @@ $(function(){
 
             lastSymbol = curSymbol;
 
+            console.log($('.col-xs-4').index(this));
             $(this).html(curSymbol);
-            $.post('/steps/', {room_id: $('input[name=room_id]').val(), symbol: curSymbol}).then(function(result){
+            $.post('/steps/', {room_id: $('input[name=room_id]').val(),position: $('.col-xs-4').index(this), symbol: curSymbol}).then(function(result){
                 console.log(result);
+
+                if(result){
+                    alert("Winner is " + result.winner.user_name);
+                    $('.center-block.btn.btn-success.navbar-btn.btn-lg').show();
+                }
+
+
             });
-            if(clickCount==7){
-                alert("Вы выиграли");
-                $('.center-block.btn.btn-success.navbar-btn.btn-lg').show();
-            }
+
         })
     })
 });

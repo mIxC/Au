@@ -21,18 +21,10 @@ class RoomsController < ApplicationController
 
 
 
-  def room_params
-    params.require(@room).permit(:id)
 
-  end
 end
 
 
 ##----------------------------------------------------------------------------------##
 
-##def show
- ## @user  = User.find(params[:id])
- ## @games = Game.find(:all, :conditions => ['user1_id = ? or user2_id = ?', @user.id, @user.id])
-
-##end
 
