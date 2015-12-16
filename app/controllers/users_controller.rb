@@ -12,6 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/profile'   ### не переходит чего-то... отправляет на главную!
     else
+      flash[:error] = "Что-то пошло не так, попробуйте ввести другие данные"
       redirect_to '/signup'
     end
   end

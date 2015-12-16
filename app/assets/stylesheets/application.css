@@ -183,3 +183,42 @@ input[type=password] {
         height: 200px;
     }
 }
+
+.xo > .col-xs-4 {
+    height: 130px;
+    width: 160px;
+    font-size: 134px;
+    line-height: 24px;
+    padding: 44px;
+}
+.xo > .col-xs-4:nth-child(1) {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.xo > .col-xs-4:nth-child(2) {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.xo > .col-xs-4:nth-child(3) {
+    border-bottom: 1px solid black;
+}
+.xo > .col-xs-4:nth-child(4) {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.xo > .col-xs-4:nth-child(5) {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.xo > .col-xs-4:nth-child(6) {
+    border-bottom: 1px solid black;
+}
+.xo > .col-xs-4:nth-child(7) {
+    border-right: 1px solid black;
+}
+.xo > .col-xs-4:nth-child(8) {
+    border-right: 1px solid black;
+}
+.xo{
+    width: 564px;
+}

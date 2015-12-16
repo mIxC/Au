@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128110102) do
+ActiveRecord::Schema.define(version: 20151216050340) do
 
   create_table "rooms", force: :cascade do |t|
-    t.string   "title"
-    t.string   "image"
+    t.integer  "first_user_id"
+    t.integer  "second_user_id"
+    t.boolean  "ending",         default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.integer  "room_id"
+    t.boolean  "is_cross"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

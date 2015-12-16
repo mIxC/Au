@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
 
+  resources :steps, :defaults => {format: :json}
   root 'welcome#index'
 
   get 'rooms' => 'rooms#index'
-  get 'game' => 'rooms#show'
+  get 'game/:id' => 'rooms#show'
   resource :rooms
 
   get 'signup' => 'users#new'

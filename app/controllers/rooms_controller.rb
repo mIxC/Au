@@ -1,25 +1,21 @@
 class RoomsController < ApplicationController
   include UsersHelper
 
+  def index
+    @rooms = Room.all
+  end
+
   def new
-    @room = Room.new
+    @room = Room.create(first_user: current_user)
+    redirect_to '/game/' + @room.id.to_s
   end
-
-  def create
-    @room = Room.new(params[:room])
-    ###@room = Room.new(room_params)
-    @room.first_user = current_user.user_name
-
-    if @room.save
-      redirect_to '/game'
-    end
-  end
-
 
 
 
   def show
-    @room = Room.find_by(params[:id])
+    @room = Room.find_by_id(params[:id])
+    @room.second_user = current_user
+    @room.save
   end
 
 

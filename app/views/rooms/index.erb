@@ -2,27 +2,28 @@
   rooms/index
 </h1>
 
+<a href="/rooms/new" class="center-block btn-submit text-center" style="width: 200px;">
+  New game
+</a>
+<style>
+  li.active {
+      color: red;
+  }
+  li.already_start {
+      color: grey;
+  }
+</style>
+<ul>
+  <%-@rooms.each do |room| %>
+    <li class="<%=room.second_user_id ? 'already_start' : 'active' %>">
+
+      <a href="<%= room.link_empty_game%>" >
+        <%=room.first_user.user_name%> - <%= room.id%>
+      </a>
+    </li>
+  <%end%>
+</ul>
 
 
 
-<div class="login">
-  <div class="container">
-    <div class="form">
-
-     <!--<h2>Create game</h2> -->
-
-
-
-      <%= form_for(:room, url: rooms_path) do |f| %>
-
-
-
-          <%= f.submit "Start game", class: "btn-submit" %>
-
-      <% end %>
-
-
-    </div>
-  </div>
-</div>
 

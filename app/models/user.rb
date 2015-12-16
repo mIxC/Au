@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   ##
   ##
 
-
+  has_many :as_first_user, class_name: "Room"
+  has_many :as_second_user, class_name: "Room"
   has_secure_password
 
 

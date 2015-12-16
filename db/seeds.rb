@@ -7,4 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create(user_name: "Super_Nagibator_1999", wins: 100, loss: 0, draw: 50)
+user = User.create(user_name: "Super_Nagibator_1999", wins: 100, loss: 0, draw: 50, password: '1')
+
+user = User.create(user_name: "1", wins: 100, loss: 0, draw: 50, password: '1')
