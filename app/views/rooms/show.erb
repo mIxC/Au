@@ -1,32 +1,28 @@
- <h1>Fuccking Game!!!</h1>
- <input type="hidden" name="room_id" value="<%= @room.id%>"/>
- <br>
- <br>
- <%=current_user.user_name%>
- <br>
- <br>
+ <div class="container">
 
- ID
- <%= @room.id%>
- <br>
- First_pl
- <%=@room.first_user.user_name%>
- <br>
- VS
- <br>
- Sec_pl
- <%=@room.second_user ? @room.second_user.user_name : "Waiting...."%>
- <br>
- <br>
- <br>
- <div class="xo">
-   <div class="col-xs-4"></div>
-   <div class="col-xs-4"></div>
-   <div class="col-xs-4"></div>
-   <div class="col-xs-4"></div>
-   <div class="col-xs-4"></div>
-   <div class="col-xs-4"></div>
-   <div class="col-xs-4"></div>
-   <div class="col-xs-4"></div>
-   <div class="col-xs-4"></div>
+   <h1>Fuccking Game!!!</h1>
+   <input type="hidden" name="room_id" value="<%= @room.id%>"/>
+   <br>
+   <br>
+   <ul class="list-group">
+     <li class="list-group-item"><h3><strong>Game ID:</strong> <%=@room.id%></h3></li>
+     <li class="list-group-item"></li>
+     <li class="list-group-item"><h3><strong>First player:</strong> <%=@room.first_user.user_name%></h3></li>
+     <li class="list-group-item"></li>
+     <li class="list-group-item"><h3><strong>Second player:</strong> <%=@room.second_user.user_name%></h3></li>
+     <li class="list-group-item"></li>
+
+   </ul>
+
+   <div class="xo center-block">
+     <div class="col-xs-4"></div>
+     <div class="col-xs-4"></div>
+     <div class="col-xs-4"></div>
+     <div class="col-xs-4"></div>
+     <div class="col-xs-4"></div>
+     <div class="col-xs-4"></div>
+     <div class="col-xs-4"></div>
+     <div class="col-xs-4"></div>
+     <div class="col-xs-4"></div>
+   </div>
  </div>
