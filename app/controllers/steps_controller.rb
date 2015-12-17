@@ -1,4 +1,5 @@
 class StepsController < ApplicationController
+
   def create
     step = Step.create(room_id: params[:room_id], user: current_user, is_cross: params[:symbol] == 'x', position: params[:position])
 
@@ -7,4 +8,5 @@ class StepsController < ApplicationController
       format.json  { render :json => result } # don't do msg.to_json
     end
   end
+
 end

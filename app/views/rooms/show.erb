@@ -4,14 +4,14 @@
    <input type="hidden" name="room_id" value="<%= @room.id%>"/>
    <br>
    <br>
-   <ul class="list-group">
-     <li class="list-group-item"><h3><strong>Game ID:</strong> <%=@room.id%></h3></li>
-     <li class="list-group-item"></li>
-     <li class="list-group-item"><h3><strong>First player:</strong> <%=@room.first_user.user_name%></h3></li>
-     <li class="list-group-item"></li>
-     <li class="list-group-item"><h3><strong>Second player:</strong> <%=@room.second_user.user_name%></h3></li>
-     <li class="list-group-item"></li>
 
+   <ul class="list-group" >
+     <li class="list-group-item"><h4><strong>Game ID:</strong> <%=@room.id%></h4></li>
+     <!--<li class="list-group-item"></li>-->
+     <li class="list-group-item"><h4><strong>First player:</strong> <%=@room.first_user.user_name%></h4></li>
+     <!--<li class="list-group-item"></li>-->
+     <li class="list-group-item"><h4><strong>Second player:</strong> <%=@room.second_user.user_name%></h4></li>
+     <!--<li class="list-group-item"></li>-->
    </ul>
 
    <div class="xo center-block">

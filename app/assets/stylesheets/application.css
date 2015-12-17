@@ -22,7 +22,7 @@ html, body {
     font-weight: bold;
     margin: 0;
     padding: 0;
-    text-transform: lowercase;
+    /*text-transform: lowercase;*/
 }
 
 /* HEADER */
@@ -60,25 +60,7 @@ html, body {
 
 /* ALBUMS */
 
-.album-info {
-    padding: 12px 24px 24px;
-    background-color: #F1f2f3;
-}
 
-.album-info h2 {
-    font-size: 18px;
-    text-transform: uppercase;
-    color: #000;
-    font-weight: bold;
-    margin: 0;
-}
-
-.album-info p {
-    color: #000;
-    font-size: 14px;
-    font-weight: bold;
-    margin: 0;
-}
 
 .item {
     margin: 0;

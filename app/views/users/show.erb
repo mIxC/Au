@@ -7,40 +7,21 @@
    You can see info about you
 
 
-
-<br>
-<br>
-<br>
-
-
-<p>
-  <strong>Name : </strong>
-  <%= current_user.user_name %>
-</p>
-
-<p>
-  <strong>ID : </strong>
-  <%= current_user.id %>
-</p>
+<ul class="list-group" >
+  <li class="list-group-item"><h4><strong> User ID: </strong> <%= current_user.id %></h4></li>
+  <!--<li class="list-group-item"></li>-->
+  <li class="list-group-item"><h4><strong> User Name: </strong> <%= current_user.user_name %></h4></li>
+  <!--<li class="list-group-item"></li>-->
+  <li class="list-group-item"><h4><strong> Wins: </strong> <%= current_user.wins %></h4></li>
+  <!--<li class="list-group-item"></li>-->
+  <li class="list-group-item"><h4><strong> Loss: </strong> <%= current_user.loss %></h4></li>
+  <!--<li class="list-group-item"></li>-->
+  <li class="list-group-item"><h4><strong> MMR: </strong> <%= current_user.mmr %></h4></li>
+  <!--<li class="list-group-item"></li>-->
 
 
-<p>
-  <strong>Wins : </strong>
-  <%= current_user.wins %>
-</p>
+</ul>
 
-<p>
-  <strong>Loss : </strong>
-  <%= current_user.loss %>
-</p>
-
-<p>
-  <strong>MMR : </strong>
-  <%= current_user.mmr %>
-
-
-
-</p>
 
 
 

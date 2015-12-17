@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
-  ###before_action :current_user, only: [:new, :create]
 
   def new
     @user = User.new
   end
+
 
   def create
     @user = User.new(user_params)
@@ -17,16 +17,15 @@ class UsersController < ApplicationController
     end
   end
 
+
   def show
     @user = User.all.build
   end
 
 
-
   private
     def user_params
       params.require(:user).permit(:user_name, :password)
-
     end
 
 end

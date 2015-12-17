@@ -10,8 +10,6 @@ class RoomsController < ApplicationController
     redirect_to '/game/' + @room.id.to_s
   end
 
-
-
   def show
     @room = Room.find_by_id(params[:id])
     @room.second_user = current_user
@@ -20,10 +18,7 @@ class RoomsController < ApplicationController
 
 
 
-
-
 end
-
 
 ##----------------------------------------------------------------------------------##
 

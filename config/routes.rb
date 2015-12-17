@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :steps, :defaults => {format: :json}
   root 'welcome#index'
 
+
+  get 'finish' => 'rooms#finish'
   get 'rooms' => 'rooms#index'
   get 'game/:id' => 'rooms#show'
   resource :rooms
