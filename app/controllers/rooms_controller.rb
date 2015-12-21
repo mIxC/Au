@@ -24,10 +24,11 @@ class RoomsController < ApplicationController
   def number_of_user
     @room = Room.find_by_id(params[:room_id])
     result = nil
-    if @room.first_user.id = current_user.id
+    if @room.first_user.id == current_user.id
       result = {number: '1', symbol: 'x'}
+    end
 
-    else
+    if @room.second_user.id == current_user.id
       result = {number: '2', symbol: 'o'}
 
     end

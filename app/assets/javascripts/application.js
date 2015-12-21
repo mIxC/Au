@@ -52,14 +52,26 @@ $(function(){
     //==========================================================
     var clickCount =0;
     var curSymbol;
+    var touch = null;
     $(document).ready(function() {
+        source = new EventSource('/steps');
+
+        source.onmessage = function(event) {
+            var step = JSON.parse(event.data);
+            console.log(step);
+            $($('.col-xs-4')[step.position]).html(step.symbol);
+
+            touch = step.symbol != curSymbol;
+        };
+
         $.get('/number_of_user/', {room_id: $('input[name=room_id]').val()}).then(function(result) {
             console.log(result);
             curSymbol = result.symbol;
-        })
+            touch = result.number == '1';
+        });
         var lastSymbol = "o";
         $('.xo .col-xs-4').click(function() {
-            if($(this).html() == "x" || $(this).html() == "o")
+            if($(this).html() == "x" || $(this).html() == "o" || touch == false)
                 return;
 
             clickCount++;
@@ -69,7 +81,7 @@ $(function(){
             $.post('/steps/', {room_id: $('input[name=room_id]').val(),position: $('.col-xs-4').index(this), symbol: curSymbol}).then(function(result){
                 console.log(result);
 
-                if(result){
+                if(result && result.winner){
                     alert("Winner is " + result.winner.user_name);
                     $('.center-block.btn.btn-success.navbar-btn.btn-lg').show();
                 }
