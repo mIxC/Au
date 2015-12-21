@@ -15,14 +15,8 @@
    </ul>
 
    <div class="xo center-block">
-     <div class="col-xs-4"></div>
-     <div class="col-xs-4"></div>
-     <div class="col-xs-4"></div>
-     <div class="col-xs-4"></div>
-     <div class="col-xs-4"></div>
-     <div class="col-xs-4"></div>
-     <div class="col-xs-4"></div>
-     <div class="col-xs-4"></div>
-     <div class="col-xs-4"></div>
+     <%- [*0..8].each do |index| %>
+         <div class="col-xs-4"><%= @room.symbol_by_position(index) %></div>
+     <% end %>
    </div>
  </div>

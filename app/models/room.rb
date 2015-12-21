@@ -87,10 +87,22 @@ class Room < ActiveRecord::Base
     end
 #---------------------------------------------------------------------
 
+
     winner
 
   end
 
+
+
+
+  def symbol_by_position(pos)
+    step = self.step_by_position(pos)
+    symbol = ''
+    if step
+      symbol = step.is_cross ? 'x' : 'o'
+    end
+    symbol
+  end
 
 end
 
