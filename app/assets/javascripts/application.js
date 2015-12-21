@@ -62,6 +62,10 @@ $(function(){
             $($('.col-xs-4')[step.position]).html(step.symbol);
 
             touch = step.symbol != curSymbol;
+            if (step.winner){
+                alert("Winner is " + step.winner.user_name);
+                window.location.href = "/finish";
+            }
         };
 
         $.get('/number_of_user/', {room_id: $('input[name=room_id]').val()}).then(function(result) {
@@ -83,7 +87,7 @@ $(function(){
 
                 if(result && result.winner){
                     alert("Winner is " + result.winner.user_name);
-                    $('.center-block.btn.btn-success.navbar-btn.btn-lg').show();
+                    window.location.href = "/finish";
                 }
 
 

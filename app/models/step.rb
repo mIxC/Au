@@ -21,7 +21,7 @@ class Step < ActiveRecord::Base
   end
 
   def basic_info_json
-    {user_name: self.user.user_name, position: self.position, symbol: self.is_cross ? 'x' : 'o'}.to_json
+    {user_name: self.user.user_name,winner: self.room.check_winner, position: self.position, symbol: self.is_cross ? 'x' : 'o'}.to_json
   end
 
   private
