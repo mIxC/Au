@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151216050340) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "rooms", force: :cascade do |t|
     t.integer  "first_user_id"
     t.integer  "second_user_id"

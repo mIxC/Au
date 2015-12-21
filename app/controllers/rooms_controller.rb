@@ -12,10 +12,29 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find_by_id(params[:id])
-    @room.second_user = current_user
+
+    if @room.first_user.id != current_user.id
+      @room.second_user = current_user
+    end
+
     @room.save
   end
 
+
+  def number_of_user
+    @room = Room.find_by_id(params[:room_id])
+    result = nil
+    if @room.first_user.id = current_user.id
+      result = {number: '1', symbol: 'x'}
+
+    else
+      result = {number: '2', symbol: 'o'}
+
+    end
+    respond_to do |format|
+      format.json  { render :json => result } # don't do msg.to_json
+    end
+  end
 
 
 end

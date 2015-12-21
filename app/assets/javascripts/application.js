@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//  require turbolinks
 //= require_tree .
 
 $(function(){
@@ -51,23 +51,18 @@ $(function(){
     }
     //==========================================================
     var clickCount =0;
+    var curSymbol;
     $(document).ready(function() {
+        $.get('/number_of_user/', {room_id: $('input[name=room_id]').val()}).then(function(result) {
+            console.log(result);
+            curSymbol = result.symbol;
+        })
         var lastSymbol = "o";
         $('.xo .col-xs-4').click(function() {
             if($(this).html() == "x" || $(this).html() == "o")
                 return;
 
             clickCount++;
-
-            var curSymbol = "";
-
-            if(lastSymbol == "o"){
-                curSymbol = 'x';
-            }else{
-                curSymbol = 'o';
-            }
-
-            lastSymbol = curSymbol;
 
             console.log($('.col-xs-4').index(this));
             $(this).html(curSymbol);
@@ -84,4 +79,5 @@ $(function(){
 
         })
     })
+
 });

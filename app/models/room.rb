@@ -22,12 +22,12 @@ class Room < ActiveRecord::Base
   def check_winner
     winner = nil
 
-    pole = [[self.step_by_position(0),self.step_by_position(1),self.step_by_position(2)],
+    @pole = [[self.step_by_position(0),self.step_by_position(1),self.step_by_position(2)],
             [self.step_by_position(3),self.step_by_position(4),self.step_by_position(5)],
             [self.step_by_position(6),self.step_by_position(7),self.step_by_position(8)]
              ]
 
-    pole.each do |row|
+    @pole.each do |row|
       last = nil
       k = 0
 
@@ -35,21 +35,56 @@ class Room < ActiveRecord::Base
         if step && (last == step.is_cross || last.nil?)
           k += 1
         end
-        if step
-          last = step.is_cross
-        end
+
+        last = step.is_cross if step
       end
 
       if k == 3
         winner = row[1].user
-
-
         break
       end
     end
+    [0,1,2].each do |index|
+      last = nil
+      k = 0
 
-#-------------------------------------------------------------------
+      @pole.each do |row|
+        step = row[index]
+        if step && (last == step.is_cross || last.nil?)
+          k += 1
+        end
+        last = step.is_cross if step
+      end
+      if k == 3
+        winner = @pole[1][index].user
+        break
+      end
 
+    end
+
+
+#----------------------diagonali---------------------------------------
+    def check_diagonal(decrement)
+      _winner = nil
+      last = nil
+      k = 0
+      [0,1,2].each do |index|
+
+        step = @pole[index][(decrement - index).abs]
+        if step && (last == step.is_cross || last.nil?)
+          k += 1
+        end
+        last = step.is_cross if step
+      end
+
+      _winner = @pole[1][1].user if k == 3
+      
+      _winner
+    end
+
+    if winner.nil?
+      winner = check_diagonal(0) || check_diagonal(2)
+    end
 #---------------------------------------------------------------------
 
     winner

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/'
     else
-      flash[:error] = "Что-то пошло не так, попробуйте ввести другие данные"
+      flash[:error] = "Oops, Try different data"
       redirect_to '/login'
     end
   end
@@ -22,6 +22,4 @@ class SessionsController < ApplicationController
   end
 
 end
-
-
 

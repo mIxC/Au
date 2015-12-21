@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'finish' => 'rooms#finish'
   get 'rooms' => 'rooms#index'
   get 'game/:id' => 'rooms#show'
+  get 'number_of_user' => 'rooms#number_of_user', :defaults => {format: :json}
   resource :rooms
 
   get 'signup' => 'users#new'
