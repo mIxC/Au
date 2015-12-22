@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
 
   validates_uniqueness_of :user_name
-  validates_presence_of :user_name, length: 3..11
-  validates_presence_of :password_digest, length: 6..20
+  validates_presence_of :user_name
+  validates_presence_of :password_digest
+  validates :password_digest, length: { in: 6..31 }
+  validates :user_name, length: { in: 3..11 }
 
   has_many :as_first_user, class_name: "Room"
   has_many :as_second_user, class_name: "Room"

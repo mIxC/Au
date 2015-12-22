@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/'
     else
-      flash[:error] = "Oops, Try different data"
+      flash[:error] = "Oops, Invalid login / password"
       redirect_to '/login'
     end
   end

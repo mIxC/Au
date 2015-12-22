@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/profile'   ### не переходит чего-то... отправляет на главную!
     else
-      flash[:error] = "Oops, Try different data"
+      flash[:error] = "Oops, Invalid login / password"
       redirect_to '/signup'
     end
   end
