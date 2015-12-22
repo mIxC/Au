@@ -11,8 +11,8 @@ default: &default
 
 development:
   database: tic_toc_development
-  username: admin
-  password: admin
+  username: ad_min
+  password: ad_min
   adapter: postgresql
   encoding: unicode
   pool: 16

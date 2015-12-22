@@ -1,6 +1,7 @@
 class StepsController < ApplicationController
   include ActionController::Live
-  require "thread"
+  ##require "thread"
+
   def create
     step = Step.create(room_id: params[:room_id], user: current_user, is_cross: params[:symbol] == 'x', position: params[:position])
 
@@ -9,8 +10,8 @@ class StepsController < ApplicationController
       if result[:winner]
         result[:winner].wins += 1
         result[:winner].save
-        step.room.ending = true
-        step.room.save
+        #step.room.ending = true
+        #step.room.save
       end
       format.json  { render :json => result } # don't do msg.to_json
     end

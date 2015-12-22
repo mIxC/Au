@@ -53,11 +53,13 @@ $(function(){
     var clickCount =0;
     var curSymbol;
     var touch = null;
+
     $(document).ready(function() {
         source = new EventSource('/steps');
 
         source.onmessage = function(event) {
             var step = JSON.parse(event.data);
+
             console.log(step);
             $($('.col-xs-4')[step.position]).html(step.symbol);
 
@@ -73,11 +75,11 @@ $(function(){
             curSymbol = result.symbol;
             touch = result.number == '1';
         });
+
         var lastSymbol = "o";
         $('.xo .col-xs-4').click(function() {
             if($(this).html() == "x" || $(this).html() == "o" || touch == false)
                 return;
-
             clickCount++;
 
             console.log($('.col-xs-4').index(this));
@@ -89,10 +91,7 @@ $(function(){
                     alert("Winner is " + result.winner.user_name);
                     window.location.href = "/finish";
                 }
-
-
             });
-
         })
     })
 

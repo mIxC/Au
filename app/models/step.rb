@@ -20,6 +20,7 @@ class Step < ActiveRecord::Base
     end
   end
 
+
   def basic_info_json
     {user_name: self.user.user_name,winner: self.room.check_winner, position: self.position, symbol: self.is_cross ? 'x' : 'o'}.to_json
   end
@@ -30,7 +31,4 @@ class Step < ActiveRecord::Base
     Step.connection.execute "NOTIFY steps, '#{self.basic_info_json}'"
   end
 
-
-
-  
 end
